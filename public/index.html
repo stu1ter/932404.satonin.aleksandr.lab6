@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог книг</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#317EFB">
+</head>
+<body>
+    <header>
+        <h1>Книжный Каталог</h1>
+        <nav>
+            <a href="/" style="color: #317EFB; background: #edf4ff;">Главная</a>
+            <a href="/about">О себе</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="filters">
+            <h3>Поиск классической литературы</h3>
+            <input type="text" id="authorInput" placeholder="Имя автора (например, Толстой)">
+            <input type="number" id="yearInput" placeholder="Год издания (например, 1869)">
+            <div>
+                <button onclick="loadBooks()">Применить фильтры</button>
+                <button onclick="clearFilters()">Сбросить</button>
+            </div>
+        </section>
+
+        <section class="books-section">
+            <h2>Доступные издания</h2>
+            <ul id="booksList"></ul>
+        </section>
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>

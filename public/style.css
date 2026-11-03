@@ -1,0 +1,166 @@
+/* Общие настройки страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fb;
+    color: #333;
+}
+
+/* Красивая верхняя панель навигации (Navbar) */
+header {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eef2f5;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #7f8c8d;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #317EFB;
+    background-color: #edf4ff;
+}
+
+/* Основной контейнер */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Красивая панель фильтрации */
+.filters {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    margin-bottom: 30px;
+}
+
+.filters h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+/* Стилизация полей ввода (Inputs) */
+input[type="text"],
+input[type="number"] {
+    width: calc(50% - 24px);
+    padding: 12px 16px;
+    margin: 8px 5px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #fcfdff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: #317EFB;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(49, 126, 251, 0.15);
+}
+
+/* Стилизация красивых кнопок (Buttons) */
+button {
+    padding: 12px 24px;
+    margin: 15px 5px 0 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Главная синяя кнопка */
+button[onclick="loadBooks()"] {
+    background-color: #317EFB;
+    color: white;
+    box-shadow: 0 4px 12px rgba(49, 126, 251, 0.2);
+}
+
+button[onclick="loadBooks()"]:hover {
+    background-color: #1a66e2;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(49, 126, 251, 0.3);
+}
+
+/* Кнопка сброса */
+button[onclick="clearFilters()"] {
+    background-color: #eaedd0;
+    color: #4b5563;
+    background-color: #f1f2f6;
+}
+
+button[onclick="clearFilters()"]:hover {
+    background-color: #dfe4ea;
+    color: #2f3542;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Список книг */
+.books-section h2 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+ul#booksList {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Карточки книг */
+ul#booksList li {
+    background: #ffffff;
+    padding: 18px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+ul#booksList li:hover {
+    transform: translateX(4px);
+}
+
+ul#booksList li strong {
+    color: #2c3e50;
+}
