@@ -1,4 +1,3 @@
-// 1. Регистрация Service Worker для поддержки PWA
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
@@ -7,7 +6,6 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// 2. Функция для динамической загрузки и фильтрации книг через Fetch API
 async function loadBooks() {
     const author = document.getElementById('authorInput')?.value || '';
     const year = document.getElementById('yearInput')?.value || '';
@@ -54,7 +52,6 @@ function clearFilters() {
     loadBooks();
 }
 
-// Первоначальная загрузка книг при открытии главной страницы
 if (document.getElementById('booksList')) {
     document.addEventListener('DOMContentLoaded', loadBooks);
 }

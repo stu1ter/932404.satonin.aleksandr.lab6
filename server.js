@@ -3,7 +3,6 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Расширенный массив книг с полными русскими именами авторов (всего 13 книг)
 const books = [
     { id: 1, title: 'Война и мир', author: 'Лев Толстой', year: 1869 },
     { id: 2, title: 'Анна Каренина', author: 'Лев Толстой', year: 1877 },
@@ -20,25 +19,20 @@ const books = [
     { id: 13, title: 'Собачье сердце', author: 'Михаил Булгаков', year: 1925 }
 ];
 
-// Раздача статических файлов из папки public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Маршрут: Главная страница
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Маршрут: О себе
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'about.html'));
 });
 
-// API Маршрут: Список книг с умной фильтрацией и очисткой пробелов
 app.get('/api/books', (req, res) => {
     const { author, year } = req.query;
     let filteredBooks = books;
 
-    // Фильтрация по автору (с обрезкой пробелов методом .trim() и частичным совпадением)
     if (author) {
         const cleanAuthor = author.trim().toLowerCase();
         filteredBooks = filteredBooks.filter(book =>
@@ -46,7 +40,6 @@ app.get('/api/books', (req, res) => {
         );
     }
 
-    // Фильтрация по году издания (с обрезкой пробелов)
     if (year) {
         const cleanYear = parseInt(year.toString().trim());
         if (!isNaN(cleanYear)) {
@@ -57,7 +50,6 @@ app.get('/api/books', (req, res) => {
     res.json(filteredBooks);
 });
 
-// Запуск сервера
 app.listen(PORT, () => {
     console.log(`Сервер успешно обновлен и запущен: http://localhost:${PORT}`);
 });
